@@ -1,0 +1,28 @@
+Post http://localhost:5000/register
+Content-type: application/json
+
+{
+      "name":"jhonDoe",
+      "email":"jhonDoe@gmail.com",
+	"password":"test1243"
+}
+###
+Post http://localhost:5000/login
+Content-type: application/json
+
+{
+      "email":"test21111@test1.com",
+	"password":"test1243"
+}
+###
+Get http://localhost:5000/create-token
+content-type: application/json
+
+###
+Post http://localhost:5000/logout
+content-type: application/json
+
+###
+Get http://localhost:5000/post/getAllPost
+content-type: application/json
+Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjoidGVzdDIxMTExQHRlc3QxLmNvbSIsIm5hbWUiOiJUZXN0IiwiaWQiOiI2MmFhMTlmYmQ4ZmQ2Y2ExZDZiZjE0NTUifSwiaWF0IjoxNjU1MzE5NDI5LCJleHAiOjE2NTUzMjAzMjl9.PxCjcTtBmbpGrbYqyETr3WTz2Qu6AG7yQwDSMpKpbaY
