@@ -3,22 +3,29 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
 const userSchema = new mongoose.Schema({
-	name: {
-		required: true,
+	// name: {
+	// 	required: true,
+	// 	type: String,
+	// },
+	firstName: {
+		type: String,
+	},
+
+	lastName: {
 		type: String,
 	},
 	email: {
-		required: true,
+		// required: true,
 		type: String,
 	},
-	password: {
-		required: true,
-		type: String,
-	},
-	refreshToken: {
-		type: String,
-		default: "",
-	},
+	// password: {
+	// 	required: true,
+	// 	type: String,
+	// },
+	// refreshToken: {
+	// 	type: String,
+	// 	default: "",
+	// },
 });
 
 userSchema.options.toJSON = {

@@ -7,5 +7,5 @@ router.post("/register", AuthController.register);
 router.post("/login", AuthController.login);
 router.get("/create-token", authMiddleware, AuthController.updateAccessToken);
 router.post("/logout", authMiddleware, AuthController.logout);
-
+router.use(require("./FacebookRouter"));
 module.exports = router;
