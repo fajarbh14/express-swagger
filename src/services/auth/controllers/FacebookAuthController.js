@@ -17,17 +17,21 @@ passport.use(
 			clientID: process.env.FACEBOOK_CLIENT_ID,
 			clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
 			callbackURL: process.env.FACEBOOK_CALLBACK_URL,
-			profileFields: ["email", "name"],
+			profileFields: ["id", "displayName", "email", "photos"],
 		},
-		function (accessToken, refreshToken, profile, done) {
-			const { email, first_name, last_name } = profile._json;
+		async function (accessToken, refreshToken, profile, done) {
+			const { email, name, picture, id } = profile._json;
 			const userData = {
 				email,
-				firstName: first_name,
-				lastName: last_name,
+				name,
+				picture: picture.data.url,
+				facebook_id: id,
 			};
-			new userModel(userData).save();
-			done(null, profile);
+			console.log(profile._json, "profile");
+			console.log(accessToken, "accessToken");
+			console.log(refreshToken, "refreshToken");
+			await userModel.create(userData);
+			return done(refreshToken, accessToken, profile);
 		}
 	)
 );

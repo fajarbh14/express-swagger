@@ -2,7 +2,13 @@ const express = require("express");
 const passport = require("passport");
 const router = express.Router();
 require("../controllers/FacebookAuthController");
-router.get("/auth/facebook", passport.authenticate("facebook"));
+router.get(
+	"/auth/facebook",
+	passport.authenticate("facebook", {
+		authType: "reauthenticate",
+		scope: ["user_friends", "manage_pages"],
+	})
+);
 
 router.get(
 	"/auth/facebook/callback",
